@@ -36,12 +36,14 @@ view-source:http://webbness.net/index.html
 
     question.forEach((currentQuestion, questionNumber) => {
       const answerContainer = answerContainers[questionNumber];
-      const selector = "input [type=radio" + totalNum + "]:checked";
+        const selector = `input[name=question${questionNumber}]:checked`;
       const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
    totalNum += userAnswer;
 
     });
+      resultsContainer.innerHTML = `${totalNum} out of ${question.length}`;
+     
   }
 
     const quizContainer = document.getElementById("quiz");
